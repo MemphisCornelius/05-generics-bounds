@@ -2,12 +2,18 @@ package ohm.softa.a05.model;
 
 public class Flower extends Plant{
 
-    public Flower(double height, String family, String name) {
+    PlantColor color;
+    public Flower(String family, String name, double height, PlantColor color) {
 
-        super(height, family, name);
+        super(family, name, height);
+
+        if (color == PlantColor.GREEN) {
+            throw new IllegalArgumentException("Green is not a flower color.");
+        }
+        this.color = color;
     }
     @Override
     public PlantColor getColor() {
-        return null;
+        return color;
     }
 }
